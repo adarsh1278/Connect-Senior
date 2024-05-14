@@ -64,6 +64,5 @@ export interface Doubt extends Document {
 }, { timestamps: true });
 
 
-const Doubt= (mongoose.model.Doubt as mongoose.Model<Doubt>)||mongoose.model<Doubt>("DOubt",DoubtSchema)
-
-export default Doubt;
+const DoubtModel = mongoose.model<Doubt>('Doubt', DoubtSchema);
+export default DoubtModel;
