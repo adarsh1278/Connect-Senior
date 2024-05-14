@@ -12,7 +12,7 @@ const PlayerAnimation: React.FC<PlayerAnimationProps> = ({ link }) => {
       autoplay
       controls
       loop
-      mode="normal"
+      
       src={link}
     />
   );
