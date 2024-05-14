@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
-import DoubtModel from "@/models/Doubt.model"; // Assuming your model is correctly exported from Doubt.model
+import jwt, { Secret } from "jsonwebtoken"; // Import Secret from jsonwebtoken
+import DoubtModel from "@/models/Doubt.model";
 import dbConnect from "@/lib/dbconnect";
 import User from "@/models/User.model";
 
@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
         }
 
         // Decode token
-        const decodedToken:any = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        const decodedToken: any = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET as Secret); // Cast process.env.ACCESS_TOKEN_SECRET as Secret
 
         if (!decodedToken) {
             return NextResponse.json({
@@ -31,18 +31,22 @@ export async function POST(req: NextRequest) {
                 },
             });
         }
-         await dbConnect();
-const user = await User.findOne({_id:decodedToken});
-if(!user){
-  return NextResponse.json({
-    status: 404,
-    body: {
-        message: "user not found",
-        success: false,
-    },
-});
-}
-console.log(user)
+
+        await dbConnect();
+        const user = await User.findOne({ _id: decodedToken });
+
+        if (!user) {
+            return NextResponse.json({
+                status: 404,
+                body: {
+                    message: "user not found",
+                    success: false,
+                },
+            });
+        }
+
+        console.log(user);
+
         // Create a new doubt object
         const newDoubt = new DoubtModel({
             userId: decodedToken._id, // Assuming userId is stored in the token
@@ -52,15 +56,12 @@ console.log(user)
                 yearMargin: yearMargin,
                 branches: [branch],
             },
-            skillsRequired:["java"]
+            skillsRequired: ["java"]
             // Other fields
         });
 
         // Save the new doubt
         await newDoubt.save();
-
-      // is anonymous case
-
 
         return NextResponse.json({
             status: 200,
