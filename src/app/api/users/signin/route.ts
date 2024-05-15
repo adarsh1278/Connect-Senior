@@ -46,7 +46,7 @@ const accessToken = await user.generateAccessToken();
 const options = {
     httpOnly: true,
     secure: true,
-    maxage:1,
+    maxage:100000,
   };
   const response:NextResponse = NextResponse.json({
 

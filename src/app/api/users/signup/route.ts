@@ -12,6 +12,11 @@ export async function POST(req: NextRequest) {
 
         // Extract information from the email
         const [userName, domainPart] = email.split("@");
+        if (domainPart !== "kiet.edu") {
+            console.log("domain part is" + domainPart);
+            return NextResponse.json({ error: "Invalid email domain" }, { status: 400 });
+        }
+
         const [name, libId] = userName.split(".");
 
         console.log("libid is -", libId);
@@ -21,10 +26,7 @@ export async function POST(req: NextRequest) {
         const branch = libId.substring(4, libId.length - 4);
 
         // Check if the email domain is kiet.edu
-        if (domainPart !== "kiet.edu") {
-            console.log("domain part is" + domainPart);
-            return NextResponse.json({ error: "Invalid email domain" }, { status: 400 });
-        }
+        
 
         // Check if the user already exists
         let user = await User.findOne({ email });

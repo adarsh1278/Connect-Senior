@@ -2,7 +2,7 @@
 import { ToastAction } from "@/components/ui/toast";
 import { toast } from "@/components/ui/use-toast";
 import { useEffect, useState } from "react";
-
+import DoubtsList from "@/app/mycomponents/mydoubt";
 export default function Profile(){
     const [username ,setUsername] = useState("");
     const [email ,setemail] = useState("");
@@ -65,7 +65,7 @@ export default function Profile(){
         title: "Successful",
         description: message,
         action: (
-          <ToastAction altText="Go to dashboard">Go to dashboard</ToastAction>
+          <ToastAction altText="Go to dashboard">User detail fetchd succefull</ToastAction>
         ),
       });
     }
@@ -148,6 +148,9 @@ export default function Profile(){
    </div>
  </div>
  </div> 
+     <DoubtsList/>    
+         
+         
             </>
         )
     

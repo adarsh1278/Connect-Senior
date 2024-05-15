@@ -4,7 +4,7 @@ import { z } from "zod";
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import { useState } from "react";
-
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -85,7 +85,7 @@ export default function SignInForm() {
       title: "Successful",
       description: message,
       action: (
-        <ToastAction altText="Go to dashboard">Go to dashboard</ToastAction>
+        <ToastAction altText="Go to dashboard"><Link href={"user/dashboard"}>GO to Dashboard</Link></ToastAction>
       ),
     });
   }
