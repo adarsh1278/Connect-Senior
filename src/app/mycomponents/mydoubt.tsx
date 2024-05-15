@@ -37,9 +37,9 @@ function DoubtsList() {
     }
 
     return (
-        <div className=' flex flex-col justify-center items-center  p-5 w-full bg-slate-600'>
-            <h1 className=' text-3xl  text-blue-600 p-5  '>My Doubts</h1>
-            <ul className=' w-full'>
+        <div className="flex flex-col justify-center items-center  p-5 w-full bg-slate-600">
+            <h1 className= "text-3xl  text-blue-600 p-5 ">My Doubts</h1>
+            <ul className="w-full">
             {doubts.map(doubt => (
     <li key={doubt._id} >
         {doubt && ( // Check if doubt is not null
