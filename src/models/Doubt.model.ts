@@ -67,7 +67,8 @@ if (mongoose.models && mongoose.models.Doubt) {
         },
         skillsRequired: {
             type: [{
-                type: String,
+                type: String,                                          
+                
                 
             }],
             validate: {
