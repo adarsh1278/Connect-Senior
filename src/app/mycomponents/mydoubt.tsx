@@ -69,7 +69,7 @@ function DoubtsList() {
                                         <div className="mt-4 pt-4 hidden border-t border-gray-300" id={`replies-${doubt._id}`}>
                                             <div className="bg-gray-50 rounded-lg shadow-lg dark:bg-gray-800 p-4">
                                                 <p className="text-lg xl:text-xl font-semibold glow">Reply 1</p>
-                                                <p className="text-md xl:text-lg">You can use JWT for authentication. It's secure and widely used. Here is an example...</p>
+                                                <p className="text-md xl:text-lg">You can use JWT for authentication. It&apos;s secure and widely used. Here is an example...</p>
                                             </div>
                                             <div className="bg-gray-50 rounded-lg shadow-lg mt-4 dark:bg-gray-800 p-4">
                                                 <p className="text-lg xl:text-xl font-semibold glow">Reply 2</p>
