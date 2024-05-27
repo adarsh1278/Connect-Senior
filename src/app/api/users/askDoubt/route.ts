@@ -6,7 +6,7 @@ import User from "@/models/User.model";
 
 export async function POST(req: NextRequest) {
     try {
-        const { username, doubt, isAnonymous, yearMargin, branch } = await req.json();
+        const {  heading ,doubt, isAnonymous, yearMargin, branch } = await req.json();
         const token = req.cookies.get('token')?.value || '';
 
         if (!token) {
@@ -49,11 +49,12 @@ export async function POST(req: NextRequest) {
 
         // Create a new doubt object
         const newDoubt = new DoubtModel({
-            userId: decodedToken._id, // Assuming userId is stored in the token
+            userId: decodedToken._id, // Assuming userId is stored in the 
+            head:heading,
             doubt: doubt,
-            isAnonymous: isAnonymous,
+            isAnonymous: isAnonymous||false,
             whoCanAnswer: {
-                yearMargin: yearMargin,
+                yearMargin: yearMargin||1,
                 branches: [branch],
             },
             skillsRequired: ["java"]

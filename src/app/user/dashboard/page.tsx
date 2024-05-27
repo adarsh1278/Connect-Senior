@@ -116,7 +116,7 @@ export default function Profile(){
          </p>
          <p className="text-md text-gray-700">
            <span className="font-medium">Admission Year:</span>
-           {userdata.username}
+           {userdata.admissionYear}
          </p>
          <p className="text-md text-gray-700">
            <span className="font-medium">Branch:</span>

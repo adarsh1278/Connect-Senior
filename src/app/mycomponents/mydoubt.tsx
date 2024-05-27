@@ -41,7 +41,7 @@ function DoubtsList() {
             <h1 className= "text-3xl  text-blue-600 p-5 ">My Doubts</h1>
             <ul className="w-full">
             {doubts.map(doubt => (
-    <li key={doubt._id} >
+    <li key={doubt?._id||"noid"} >
         {doubt && ( // Check if doubt is not null
             <div>
                 <div className="canvas-paper"></div>
