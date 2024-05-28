@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/dbconnect";
 import User from "@/models/User.model";
+import OTP from "@/models/Otp.model";
 
 export async function POST(req: NextRequest) {
     try {
         // Assuming req is the request object containing username, password, and email
-        const { username, password, email } = await req.json();
+        const { username, password, email ,otp } = await req.json();
 
         // Connect to the database
         await dbConnect();
@@ -35,8 +36,18 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ error: "User already exists" }, { status: 400 });
         }
 
-        
-     
+        const Otp = await OTP.findOne({email});
+        if(!Otp){
+            console.log("Send otp first")
+            return NextResponse.json({ "message": "Send otp first", "error": true }, { status: 402 });
+           }
+           if(Otp.otp != otp){
+            return NextResponse.json({ "message": "Wrong Otp", "error": true }, { status: 400 });
+           }
+      console.log("Otp verified");
+      Otp.expiresAt = new Date();
+      await Otp.save();
+      console.log("Otp deleted");
 
         // Create a new user
         const newUser = new User({
@@ -51,8 +62,13 @@ export async function POST(req: NextRequest) {
         // Save the new user to the database
         await newUser.save();
 
-        // Respond with success message
-        return NextResponse.json({ message: "User created successfully" }, { status: 200 });
+    return NextResponse.json({
+            status: 200,
+            body: {
+              message: "User created succefully",
+              success: true,
+            },
+          });
     } catch (error) {
         console.error(error);
         console.log("error occured");

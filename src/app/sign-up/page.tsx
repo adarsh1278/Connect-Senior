@@ -26,8 +26,8 @@ import {
 export default function TabsDemo() {
   const { toast } = useToast();
   return (
-    <div className="w-screen flex justify-center items-center mt-7 ">
-      <div className="flex items-center mt-36 sm:w-1/2 lg:w-1/3 w-full">
+    <div className="w-screen flex justify-center items-center  mt-2 ">
+      <div className="flex items-center   mt-28 sm:w-1/2 lg:w-1/3 w-full">
         <Tabs defaultValue="account" className="w-full">
           <TabsList className="grid w-full grid-cols-2 text-lg h-16">
             <TabsTrigger value="account" className="h-full sm:text-xl">Sign-Up</TabsTrigger>

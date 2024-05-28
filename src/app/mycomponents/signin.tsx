@@ -1,3 +1,5 @@
+"use client";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -5,7 +7,6 @@ import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import { useState } from "react";
 import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -19,19 +20,18 @@ import {
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-  username: z.string().optional(),
   email: z.string().email({
     message: "Invalid email address format.",
   }),
-  password: z.string().min(3, {
+  password: z.string().min(6, {
     message: "Password must be at least 6 characters.",
   }),
 });
 
 export default function SignInForm() {
   const { toast } = useToast();
- 
   const [disabled, setDisabled] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,18 +51,16 @@ export default function SignInForm() {
         body: JSON.stringify(values),
       });
       const data = await response.json();
-     console.log("data is" + data.body.success);
-     console.dir(data)
-      if (!data.body.success) {
-        const data = await response.json();
-        showErrorToast(data.body.message || "Failed to sign in");
+      if (!data.success) {
+        showErrorToast(data.message || "Failed to sign in");
         return;
       }
 
-     
       showSuccessToast(data.message);
       // Redirect to dashboard or desired page after successful sign-in
-     
+      setTimeout(() => {
+        window.location.href = "/user/dashboard";
+      }, 2000);
     } catch (error) {
       console.error(error);
       showErrorToast("Failed to submit the form");
@@ -85,7 +83,7 @@ export default function SignInForm() {
       title: "Successful",
       description: message,
       action: (
-        <ToastAction altText="Go to dashboard"><Link href={"user/dashboard"}>GO to Dashboard</Link></ToastAction>
+        <ToastAction altText="Go to dashboard"><Link href={"/user/dashboard"}>Go to Dashboard</Link></ToastAction>
       ),
     });
   }
@@ -122,7 +120,7 @@ export default function SignInForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" size={"lg"} disabled={disabled}>
+        <Button type="submit" size={"lg"} disabled={disabled} className="w-full">
           Sign In
         </Button>
       </form>

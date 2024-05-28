@@ -26,5 +26,5 @@ const OTPSchema: Schema<OTP> = new mongoose.Schema({
 OTPSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 
 // Export the model
-const OTPModel: Model<OTP> = mongoose.models.OTP || mongoose.model<OTP>("OTP", OTPSchema);
-export default OTPModel;
+const OTP: Model<OTP> = mongoose.models.OTP || mongoose.model<OTP>("OTP", OTPSchema);
+export default OTP;
