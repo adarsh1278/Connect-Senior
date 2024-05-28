@@ -53,11 +53,8 @@ export async function POST(req: NextRequest) {
             head:heading,
             doubt: doubt,
             isAnonymous: isAnonymous||false,
-            whoCanAnswer: {
-                yearMargin: yearMargin||1,
-                branches: [branch],
-            },
-            skillsRequired: ["java"]
+            year:user.admissionYear,
+            skillsRequired: ["any"]
             // Other fields
         });
 

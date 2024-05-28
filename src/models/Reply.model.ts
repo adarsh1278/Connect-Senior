@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, Model } from 'mongoose';
 
 export interface Reply extends Document {
     doubtId: string;
@@ -7,6 +7,7 @@ export interface Reply extends Document {
     answer: string;
 }
 
+let ReplyModel: Model<Reply>;
 export const ReplySchema: Schema<Reply> = new mongoose.Schema({
     doubtId: {
         type: String,
@@ -25,3 +26,11 @@ export const ReplySchema: Schema<Reply> = new mongoose.Schema({
         required: [true, 'Answer is required'],
     },
 }, { timestamps: true });
+
+if (mongoose.models && mongoose.models.Reply) {
+    ReplyModel = mongoose.models.Reply as Model<Reply>;
+} else {
+    ReplyModel = mongoose.model<Reply>('Reply', ReplySchema);
+}
+
+export default ReplyModel;

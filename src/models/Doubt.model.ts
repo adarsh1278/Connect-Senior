@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document, Model } from 'mongoose';
+import { date } from 'zod';
 
 export interface Doubt extends Document {
     userId: string;
@@ -7,11 +8,8 @@ export interface Doubt extends Document {
     doubt: string;
     isAnonymous: boolean;
     isSolved: boolean;
-    upVote:number
-    whoCanAnswer: {
-        yearMargin: number;
-        branches: string[];
-    };
+    upVote:number;
+    year:number;
     skillsRequired: string[];
     finalAnswer?: string;
 }
@@ -50,21 +48,11 @@ if (mongoose.models && mongoose.models.Doubt) {
             type: Number,
             default: 0,
         },
-        whoCanAnswer: {
-            type: {
-                yearMargin: {
-                    type: Number,
-                    default: 1,
-                },
-                branches: [{
-                    type: String,
-                }],
-            },
-            default: {
-                yearMargin: 1, 
-                branches: ["All"],
-            },
-        },
+       year:{
+        type: Number,
+        default: 2022,
+       },
+        
         skillsRequired: {
             type: [{
                 type: String,                                          
