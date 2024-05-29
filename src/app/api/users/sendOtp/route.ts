@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
     });
 
     const subject = "OTP Verification";
-    const text = `Your OTP for login nextauth.com is ${otp}`;
+    const text = `Your OTP for Email Validation  is -- ${otp} valid for 10min`;
     const mailOptions = {
       from: process.env.EMAIL_USERNAME,
       to: email,

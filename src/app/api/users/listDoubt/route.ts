@@ -5,7 +5,8 @@ import DoubtModel from "@/models/Doubt.model";
     try {
         
 await dbConnect();
-const Doubtlist = await DoubtModel.find({isSolved:false});
+const Doubtlist = await DoubtModel.find({isSolved:false}).sort({"timestamp": 1});
+
 console.log(Doubtlist)
 
 return NextResponse.json({

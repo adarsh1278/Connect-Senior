@@ -51,7 +51,7 @@ export default function SignInForm() {
         body: JSON.stringify(values),
       });
       const data = await response.json();
-      if (!data.success) {
+      if (data.status!=200) {
         showErrorToast(data.message || "Failed to sign in");
         return;
       }

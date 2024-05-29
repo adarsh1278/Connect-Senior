@@ -37,9 +37,54 @@ export default function Askdoubt() {
  
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-   console.log(values)
-  }
+   const onSubmit = async (data: any) => {
+    try {
+      console.log(data)
+      setDisabled(true);
+      const response = await fetch('/api/users/askDoubt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      
+      const responseData: any = await response.json(); 
+      console.log(responseData)
+      if (responseData.status !=200) {
+        throw new Error(responseData.body.message);
+      }
+
+      toast({
+        title: 'Success',
+        description: 'Doubt submitted successfully',
+        action: (
+          <ToastAction altText="Go to dashboard">
+            <Link href="/user/dashboard">Go to Dashboard</Link>
+          </ToastAction>
+        ),
+      });
+    } catch (error) {
+      if (error instanceof Error) { // Check if error is an instance of Error
+        toast({
+          variant: 'destructive',
+          title: 'Error',
+          description: `Error: ${error.message}`,
+          action: <ToastAction altText="Try again">Try again</ToastAction>,
+        });
+      } else {
+        // Handle other types of errors
+        toast({
+          variant: 'destructive',
+          title: 'Unknown Error',
+          description: 'An unknown error occurred.',
+          action: <ToastAction altText="Try again">Try again</ToastAction>,
+        });
+      }
+    } finally {
+      setDisabled(false);
+    }
+  };
 
   function showErrorToast(message: string) {
     toast({
@@ -83,7 +128,7 @@ export default function Askdoubt() {
             <FormItem>
               <FormLabel>Doubt</FormLabel>
               <FormControl>
-                <Textarea className="bg-blue-100 border-blue-500 border-2 w-[5`50px] h-[250px]" placeholder="Doubts" {...field} />
+                <Textarea className="bg-blue-100 border-blue-500 border-2 w-[550px] h-[250px]" placeholder="Doubts" {...field} />
               </FormControl>
               <FormDescription>
                 Doubts must be at least 30 characters.

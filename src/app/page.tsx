@@ -3,6 +3,7 @@ import PlayerAnimation from "./mycomponents/player"
 import Home1 from "./mycomponents/home/home1"
 import { TypeAnimation } from 'react-type-animation';
 import Link from "next/link";
+import Askdoubt from "./mycomponents/askFormdoubts";
 export  default function home(){
   return(
    <>
@@ -78,17 +79,7 @@ export  default function home(){
     <div>
       <div className=" text-gray-800 items-center justify-center flex flex-col p-4 text-3xl">
         <p className="text-2xl font-bold mb-4 text-indigo-600">Have a doubt? Ask Doubt!</p>
-        <div className="w-full max-w-md">
-        
-          <textarea  placeholder="Write your detailed doubt here..." className="text-black bg-gray-100
-              font-normal w-full h-32 text-xs rounded-md shadow-sm mb-4 focus:border-indigo-700 focus:outline-none
-              focus:shadow-outline flex-grow transition duration-200 appearance-none p-2 border-2
-              border-gray-300"></textarea>
-          <button  type="submit" className="inline-flex border border-indigo-500 focus:outline-none
-              focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 animate-bounce hover:shadow-lg transition
-              duration-300 justify-center rounded-md py-2 px-6 bg-indigo-600 text-sm font-medium text-white
-              shadow-sm">Click me!</button>
-        </div>
+       <Askdoubt/>
       </div>
    
     </div>

@@ -1,9 +1,13 @@
 "use client"
+
+import axios from "axios";
 import { ToastAction } from "@/components/ui/toast";
 import { toast } from "@/components/ui/use-toast";
 import { useEffect, useState } from "react";
 import DoubtsList from "@/app/mycomponents/mydoubt";
+import { useRouter } from "next/navigation";
 export default function Profile(){
+  const router = useRouter();
     const [username ,setUsername] = useState("");
     const [email ,setemail] = useState("");
     const [admission ,setadmission] = useState();
@@ -70,8 +74,16 @@ export default function Profile(){
       });
     }
 
-
-
+    async function Logout() {
+      try {
+        await axios.get('/api/users/logout');
+        showSuccessToast("Logout successfully");
+        router.push('/sign-up');
+      } catch (error) {
+        console.error(error);
+        showErrorToast("Failed to logout");
+      }
+    }
 
 
 
@@ -140,9 +152,9 @@ export default function Profile(){
            focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 transform hover:scale-105
            justify-center rounded-md py-2 px-4 bg-indigo-600 text-md font-medium text-white shadow-sm">Update
            Profile</button>
-       <button  type="button" className="inline-flex border border-red-500 focus:outline-none
+       <button  onClick={Logout} type="button" className="inline-flex border border-red-500 focus:outline-none
            focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition duration-200 transform hover:scale-105 ml-4
-           justify-center rounded-md py-2 px-4 bg-red-600 text-md font-medium text-white shadow-sm">Delete
+           justify-center rounded-md py-2 px-4 bg-red-600 text-md font-medium text-white shadow-sm">Logout
            Account</button>
      </div>
    </div>
