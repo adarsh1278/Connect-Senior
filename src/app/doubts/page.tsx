@@ -26,7 +26,7 @@ const Home = () => {
 
         setDoubts(
           list.map((doubt: any, index: number) => ({
-            doubtid: index + 1,
+            doubtid: doubt._id,
             title: doubt.head,
             doubt: doubt.doubt,
             upvote: doubt.upVote,
