@@ -8,6 +8,7 @@ export interface Doubt extends Document {
     doubt: string;
     isAnonymous: boolean;
     isSolved: boolean;
+    seniorOnly:boolean;
     upVote:number;
     year:number;
     skillsRequired: string[];
@@ -35,6 +36,10 @@ if (mongoose.models && mongoose.models.Doubt) {
         image:{
             type: String,
             default:"none"
+        },
+        seniorOnly:{
+            type: Boolean,
+            default:false
         },
         isAnonymous: {
             type: Boolean,

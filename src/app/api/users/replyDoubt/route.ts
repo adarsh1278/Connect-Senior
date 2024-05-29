@@ -54,7 +54,7 @@ if (!doubt) {
         }
     });
 }
-if(doubt.year<=user.admissionYear){
+if( doubt.seniorOnly && doubt.year<=user.admissionYear){
     return NextResponse.json({
         status: 300,
         body: {

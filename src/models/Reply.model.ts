@@ -5,6 +5,7 @@ export interface Reply extends Document {
     userId: string;
     isAnonymous: boolean;
     answer: string;
+    satisfied:boolean;
 }
 
 let ReplyModel: Model<Reply>;
@@ -25,6 +26,10 @@ export const ReplySchema: Schema<Reply> = new mongoose.Schema({
         type: String,
         required: [true, 'Answer is required'],
     },
+    satisfied:{
+        type: Boolean,
+        default:false
+    }
 }, { timestamps: true });
 
 if (mongoose.models && mongoose.models.Reply) {
