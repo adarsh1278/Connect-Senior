@@ -34,9 +34,7 @@ const formSchema = z.object({
   reply: z.string().min(30, {
     message: "Reply must be at least 30 characters.",
   }),
-  doubtid: z.string().min(6, {
-    message: "Doubt ID must be at least 6 characters.",
-  }),
+  doubtid: z.number()
 });
 
 export default function ReplyForm({ doubtid }: { doubtid: number }) {
