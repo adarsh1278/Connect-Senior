@@ -56,6 +56,7 @@ if (!doubt) {
     });
 }
 if( doubt.seniorOnly && doubt.year<=user.admissionYear){
+    console.log("eligiblity failed")
     return NextResponse.json({
         status: 300,
         body: {

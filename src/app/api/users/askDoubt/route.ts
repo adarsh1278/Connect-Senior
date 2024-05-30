@@ -6,7 +6,7 @@ import User from "@/models/User.model";
 
 export async function POST(req: NextRequest) {
     try {
-        const {  Title ,Doubt, isAnonymous, yearMargin, branch } = await req.json();
+        const {  Title ,Doubt, isAnonymous, yearMargin, branch  , seniorOnly} = await req.json();
         const token = req.cookies.get('token')?.value || '';
 
         if (!token) {
@@ -54,7 +54,8 @@ export async function POST(req: NextRequest) {
             doubt: Doubt,
             isAnonymous: isAnonymous||false,
             year:user.admissionYear,
-            skillsRequired: ["any"]
+            skillsRequired: ["any"],
+            seniorOnly,
             // Other fields
         });
 
