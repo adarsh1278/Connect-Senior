@@ -39,7 +39,7 @@ const formSchema = z.object({
   }),
 });
 
-export default function ReplyForm({ doubtid }: { doubtid: string }) {
+export default function ReplyForm({ doubtid }: { doubtid: number }) {
   const { toast } = useToast();
   const [disabled, setDisabled] = useState(false);
 
