@@ -28,11 +28,11 @@ export  default function DrawerDialogDemo({doubtid}:DoubtProps) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline">Repl</Button>
+          <Button variant="outline">Reply</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[680px]  gap-3  p-7 drop-shadow-2xl shadow-2xl ">
           
-          <Replyform className=" h-full " doubtid={doubtid}/>
+          <Replyform  doubtid={doubtid}/>
          
         </DialogContent>
       </Dialog>
@@ -42,9 +42,3 @@ export  default function DrawerDialogDemo({doubtid}:DoubtProps) {
   
 }
  
-function ProfileForm({ className }: React.ComponentProps<"form">) {
-  return (
-    <Replyform/>
-    
-  )
-}
