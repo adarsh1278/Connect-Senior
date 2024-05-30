@@ -7,9 +7,10 @@ import ReplyModel from "@/models/Reply.model";
 import DoubtModel from "@/models/Doubt.model";
 
 export  async function POST(req:NextRequest){
-   const {doubtId , reply}= await req.json();
+   const { doubtid,reply}= await req.json();
+   console.log(doubtid)
    const token = await req.cookies.get('token')?.value || '';
-
+    
     if (!token) {
         return NextResponse.json({
             status: 404,
@@ -44,7 +45,7 @@ try {
             }
         });
     }
-const doubt = await DoubtModel.findById(doubtId);
+const doubt = await DoubtModel.findById(doubtid);
 if (!doubt) {
     return NextResponse.json({
         status: 404,
@@ -67,7 +68,7 @@ if( doubt.seniorOnly && doubt.year<=user.admissionYear){
 
 const newReply =  new ReplyModel(
     {
-        doubtId,
+        doubtId:doubtid,
         userId:user._id,
         answer:reply
     }
@@ -86,7 +87,7 @@ return NextResponse.json({
     
 } catch (error) {
     
-
+console.log(error)
 
     return NextResponse.json({
         status: 404,

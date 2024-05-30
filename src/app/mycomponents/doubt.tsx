@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-
+import DrawerDialogDemo from './reply/opendrawer';
 interface DoubtProps {
   doubt: {
     doubtid: number;
@@ -27,7 +27,7 @@ const Doubt = ({ doubt }: DoubtProps) => {
           <button  onClick={()=>{
             router.push(`/doubts/${doubt.doubtid}`)
           }} className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">Show Reply</button>
-          <button   className="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors duration-300">Reply</button>
+<DrawerDialogDemo doubtid={doubt.doubtid}/>
         </div>
       </div>
       <div className="flex flex-col items-center">

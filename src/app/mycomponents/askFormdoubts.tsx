@@ -8,6 +8,7 @@ import { ToastAction } from "@/components/ui/toast";
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+
 import {
   Form,
   FormControl,
@@ -128,7 +129,7 @@ export default function Askdoubt() {
             <FormItem>
               <FormLabel>Doubt</FormLabel>
               <FormControl>
-                <Textarea className="bg-blue-100 border-blue-500 border-2 w-[550px] h-[250px]" placeholder="Doubts" {...field} />
+                <Textarea className="bg-blue-100 border-blue-500 border-2 w-[900px] h-[8000px]" placeholder="Doubts" {...field} />
               </FormControl>
               <FormDescription>
                 Doubts must be at least 30 characters.
