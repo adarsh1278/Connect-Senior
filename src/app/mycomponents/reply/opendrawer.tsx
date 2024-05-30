@@ -32,7 +32,7 @@ export  default function DrawerDialogDemo({doubtid}:DoubtProps) {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[680px]  gap-3  p-7 drop-shadow-2xl shadow-2xl ">
           
-          <Replyform  doubtid={doubtid}/>
+          <Replyform  doubtid={doubtid.toString()}/>
          
         </DialogContent>
       </Dialog>

@@ -34,10 +34,12 @@ const formSchema = z.object({
   reply: z.string().min(30, {
     message: "Reply must be at least 30 characters.",
   }),
-  doubtid: z.number()
+  doubtid: z.string().min(6, {
+    message: "Doubt ID must be at least 6 characters.",
+  }),
 });
 
-export default function ReplyForm({ doubtid }: { doubtid: number }) {
+export default function ReplyForm({ doubtid }: { doubtid: string }) {
   const { toast } = useToast();
   const [disabled, setDisabled] = useState(false);
 
