@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 import jwt from "jsonwebtoken";
-import Doubt from "./Doubt.model";
-import { Reply, ReplySchema } from './Reply.model';
+
+
 import bcrypt from "bcrypt"
 
 export interface User extends Document {
@@ -11,7 +11,7 @@ export interface User extends Document {
     password: string;
     avatar?: string;
     anonymousdoubts: string[];
-    replies: Reply[];
+    replies: number;
 
     admissionYear: number;
     branch:String;
@@ -52,7 +52,10 @@ const UserSchema: Schema<User> = new mongoose.Schema({
         type: String,
     },
     anonymousdoubts: [],
-    replies: [ReplySchema],
+    replies: {
+        type: Number,
+        default:0,
+    },
     admissionYear: {
         type: Number,
         required: [true, 'Year is required'],

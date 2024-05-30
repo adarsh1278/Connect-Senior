@@ -45,29 +45,31 @@ const Home = () => {
     setSearchTerm(e.target.value);
   };
 
-  const filteredDoubts = doubts.filter((doubt) =>
+  const filteredDoubts = doubts.filter((doubt: { title: string; }) =>
     doubt.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div className="container mx-auto p-4 bg-white text-black">
+    <div className="container mx-auto p-4 bg-white dark:bg-gray-800 text-black dark:text-gray-100">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">Doubt List</h1>
       </div>
       <input
         type="text"
-        className="border p-2 mb-4 w-full"
+        className="border p-2 mb-4 w-full dark:bg-gray-700 dark:text-gray-100"
         placeholder="Search doubts by title..."
         value={searchTerm}
         onChange={handleSearchChange}
       />
-      {loading ? (
+      {loading? (
         <div className="flex justify-center items-center h-64">
-          <div className="loader"></div>
+          <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4 mx-auto"></div>
           <span className="text-xl font-bold ml-2">Loading...</span>
         </div>
       ) : (
-        filteredDoubts.map((doubt) => <Doubt key={doubt.doubtid} doubt={doubt} />)
+        filteredDoubts.map((doubt) => (
+          <Doubt key={doubt.doubtid} doubt={doubt} />
+        ))
       )}
     </div>
   );

@@ -88,36 +88,37 @@ export default function UserProfile() {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-4 bg-gray-50">
-            <h1 className="text-5xl font-bold mb-8 text-blue-600">Profile</h1>
-            {doubtLoading ? (
-                <p className="text-2xl font-bold text-gray-700 animate-pulse">Loading doubt...</p>
-            ) : (
-                <div className="bg-white shadow-md rounded-lg p-6 mb-6 w-full max-w-4xl">
-                    <div className="flex justify-between items-center mb-4">
-                        <h2 className="text-3xl font-semibold text-gray-800">{doubt?.head}</h2>
-                        <div className="text-lg font-medium text-gray-600">Upvotes: {doubt?.upVote}</div>
-                    </div>
-                    <p className="text-gray-600 text-lg mb-4">{doubt?.doubt}</p>
-                </div>
-            )}
-            {replyLoading ? (
-                <p className="text-2xl font-bold text-gray-700 animate-pulse">Loading replies...</p>
-            ) : (
-                <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-4xl">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4">Replies</h3>
-                    {replies.length > 0 ? (
-                        replies.map((reply) => (
-                            <div key={reply._id} className="bg-gray-100 p-4 mb-4 rounded-lg hover:bg-gray-200 transition">
-                                <p className="text-gray-800 text-lg">{reply.answer}</p>
-                                <p className="text-sm text-gray-500">Posted at: {new Date(reply.createdAt).toLocaleString()}</p>
-                            </div>
-                        ))
-                    ) : (
-                        <p className="text-xl font-bold text-gray-700">No solutions found</p>
-                    )}
-                </div>
-            )}
-        </div>
+        <div className="flex flex-col items-center justify-center min-h-screen py-4 bg-gray-50 dark:bg-gray-900">
+  <h1 className="text-5xl font-bold mb-8 text-blue-600 dark:text-blue-400">Profile</h1>
+  {doubtLoading ? (
+    <p className="text-2xl font-bold text-gray-700 dark:text-gray-300 animate-pulse">Loading doubt...</p>
+  ) : (
+    <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mb-6 w-full max-w-4xl">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-200">{doubt?.head}</h2>
+        <div className="text-lg font-medium text-gray-600 dark:text-gray-400">Upvotes: {doubt?.upVote}</div>
+      </div>
+      <p className="text-gray-600 dark:text-gray-400 text-lg mb-4">{doubt?.doubt}</p>
+    </div>
+  )}
+  {replyLoading ? (
+    <p className="text-2xl font-bold text-gray-700 dark:text-gray-300 animate-pulse">Loading replies...</p>
+  ) : (
+    <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 w-full max-w-4xl">
+      <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Replies</h3>
+      {replies.length > 0 ? (
+        replies.map((reply) => (
+          <div key={reply._id} className="bg-gray-100 dark:bg-gray-700 p-4 mb-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+            <p className="text-gray-800 dark:text-gray-200 text-lg">{reply.answer}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Posted at: {new Date(reply.createdAt).toLocaleString()}</p>
+          </div>
+        ))
+      ) : (
+        <p className="text-xl font-bold text-gray-700 dark:text-gray-300">No solutions found</p>
+      )}
+    </div>
+  )}
+</div>
+
     );
 }
