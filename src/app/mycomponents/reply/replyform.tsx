@@ -111,7 +111,7 @@ export default function ReplyForm({ doubtid }: { doubtid: string }) {
               <FormLabel>Reply</FormLabel>
               <FormControl>
                 <Textarea
-                  className="bg-blue-100 text-lg border-blue-500 border-2 h-[250px] max-w-full"
+                  className="bg-blue-100 text-lg border-blue-500 border-2 h-[400px] max-w-full"
                   placeholder="Reply"
                   {...field}
                 />
@@ -122,9 +122,9 @@ export default function ReplyForm({ doubtid }: { doubtid: string }) {
           )}
         />
 
-        <DialogClose><Button type="submit" size="lg" disabled={disabled} className="w-full bg-blue-600">
+        <Button type="submit" size="lg" disabled={disabled} className="w-full bg-blue-600">
           Submit
-        </Button></DialogClose>
+        </Button>
       </form>
     </Form>
   );
