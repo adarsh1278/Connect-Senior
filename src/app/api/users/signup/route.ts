@@ -37,17 +37,17 @@ export async function POST(req: NextRequest) {
         }
 
         const Otp = await OTP.findOne({email});
-        if(!Otp){
-            console.log("Send otp first")
-            return NextResponse.json({ "message": "Send otp first", "error": true }, { status: 402 });
-           }
-           if(Otp.otp != otp){
-            return NextResponse.json({ "message": "Wrong Otp", "error": true }, { status: 400 });
-           }
-      console.log("Otp verified");
-      Otp.expiresAt = new Date();
-      await Otp.save();
-      console.log("Otp deleted");
+    //     if(!Otp){
+    //         console.log("Send otp first")
+    //         return NextResponse.json({ "message": "Send otp first", "error": true }, { status: 402 });
+    //        }
+    //        if(Otp.otp != otp){
+    //         return NextResponse.json({ "message": "Wrong Otp", "error": true }, { status: 400 });
+    //        }
+    //   console.log("Otp verified");
+    //   Otp.expiresAt = new Date();
+    //   await Otp.save();
+    //   console.log("Otp deleted");
 
         // Create a new user
         const newUser = new User({
