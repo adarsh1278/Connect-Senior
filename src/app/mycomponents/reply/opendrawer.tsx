@@ -13,9 +13,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-
+interface DoubtProps {
+  
+    doubtid: number;
+    
+}
  
-export  default function DrawerDialogDemo({doubtid}:any) {
+export  default function DrawerDialogDemo({doubtid}:DoubtProps) {
     console.log("doub id in drwawrr" , doubtid)
   const [open, setOpen] = React.useState(false)
   const isDesktop = useMediaQuery("(min-width: 768px)")
