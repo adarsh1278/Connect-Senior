@@ -17,15 +17,14 @@ function DoubtsList() {
 
     useEffect(() => {
         const fetchData = async () => {
-            try { console.log("inside clling detch doubt my")
+            try { 
                 const response = await fetch('/api/users/myDoubt'); // Assuming your API route is '/api/doubts'
                 const data = await response.json();4
-                console.log("above the data")
+              
                 console.log(data);
-                console.log(data.status)
-                console.log("below the data")
+              
                 if (data.success) {
-                    console.log("inside the duccess body")
+                  
                     setDoubts(data.doubts);
                 } else {
                     setError(data.body.message);
