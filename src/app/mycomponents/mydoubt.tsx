@@ -19,17 +19,21 @@ function DoubtsList() {
         const fetchData = async () => {
             try { console.log("inside clling detch doubt my")
                 const response = await fetch('/api/users/myDoubt'); // Assuming your API route is '/api/doubts'
-                const data = await response.json();
+                const data = await response.json();4
+                console.log("above the data")
                 console.log(data);
+                console.log("below the data")
                 if (data.status==200) {
                     setDoubts(data.body.doubts);
                 } else {
                     setError(data.body.message);
                 }
             } catch (error) {
+                console.log("errorr")
                 console.error('Error fetching data:', error);
                 setError("Error happened");
             } finally {
+                console.log("error occured finally")
                 setLoading(false);
             }
         };
