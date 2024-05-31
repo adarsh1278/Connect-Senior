@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-
+import { useRouter } from 'next/navigation';
 interface Doubt {
     _id: string;
     head: string;
@@ -10,6 +10,7 @@ interface Doubt {
 }
 
 function DoubtsList() {
+    const router = useRouter();
     const [loading, setLoading] = useState<boolean>(true);
     const [doubts, setDoubts] = useState<Doubt[]>([]);
     const [error, setError] = useState<string | null>(null);
@@ -65,7 +66,11 @@ function DoubtsList() {
                                             </div>
                                         </div>
                                         <p className="text-lg xl:text-xl mb-6">{doubt.doubt}</p>
-                                        <button type="button" onClick={() => toggleReplies(doubt._id)} className="focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all hover:bg-indigo-700 py-2 px-4 bg-indigo-600 text-white rounded-md shadow-sm">Show Replies</button>
+                                        <button type="button" onClick={() => 
+                                     router.push(`/user/dashboard/${doubt._id}`)
+
+
+                                        } className="focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all hover:bg-indigo-700 py-2 px-4 bg-indigo-600 text-white rounded-md shadow-sm">Show Replies</button>
                                         <div className="mt-4 pt-4 hidden border-t border-gray-300" id={`replies-${doubt._id}`}>
                                             <div className="bg-gray-50 rounded-lg shadow-lg dark:bg-gray-800 p-4">
                                                 <p className="text-lg xl:text-xl font-semibold glow">Reply 1</p>
