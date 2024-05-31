@@ -111,7 +111,7 @@ export default function ReplyForm({ doubtid }: { doubtid: string }) {
               <FormLabel>Reply</FormLabel>
               <FormControl>
                 <Textarea
-                  className="bg-blue-100 text-lg border-blue-500 border-2 h-[400px] max-w-full"
+                  className="bg-blue-100 text-lg border-blue-500 border-2 h-[400px] max-w-full dark:text-black"
                   placeholder="Reply"
                   {...field}
                 />

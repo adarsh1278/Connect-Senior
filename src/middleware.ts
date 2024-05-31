@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value || '';
 
   if (isPublicPath && token) {
-    return NextResponse.redirect(new URL('/', request.nextUrl));
+    return NextResponse.redirect(new URL('/user/dashboard', request.nextUrl));
   }
 
   if (isProtectedPath && !token) {

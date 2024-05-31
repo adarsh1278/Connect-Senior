@@ -89,7 +89,7 @@ export default function UserProfile() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-4 bg-gray-50 dark:bg-gray-900">
-  <h1 className="text-5xl font-bold mb-8 text-blue-600 dark:text-blue-400">Profile</h1>
+  <h1 className="text-5xl font-bold mb-8 text-blue-600 dark:text-blue-400">Doubt</h1>
   {doubtLoading ? (
     <p className="text-2xl font-bold text-gray-700 dark:text-gray-300 animate-pulse">Loading doubt...</p>
   ) : (

@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import { Mail, Linkedin, Github } from "lucide-react";
-
+import Link from "next/link";
 const AboutUsPage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col justify-between bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
@@ -20,28 +20,28 @@ const AboutUsPage: React.FC = () => {
               <h3 className="text-lg font-semibold mb-2 ">{member.name}</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-2">{member.role}</p>
               <div className="flex items-center space-x-2">
-                <a
+                <Link
                   href={member.Github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-gray-400 transition"
                 >
                   <Github className="w-6 h-6" />
-                </a>
-                <a
+                </Link>
+                <Link
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-gray-400 transition"
                 >
                   <Linkedin className="w-6 h-6" />
-                </a>
-                <a
+                </Link>
+                <Link
                   href={`mailto:${member.email}`}
                   className="hover:text-gray-400 transition"
                 >
                   <Mail className="w-6 h-6" />
-                </a>
+                </Link>
               </div>
             </div>
           ))}
@@ -53,14 +53,14 @@ const AboutUsPage: React.FC = () => {
           <p className="mb-4 text-2xl">
             To contribute to our project, visit our Github repository:
           </p>
-          <a
-            href="https://Github.com/your-Github-repo"
+          <Link
+            href="https://github.com/adarsh1278/Connect-Senior"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
           >
             View Repository
-          </a>
+          </Link>
         </div>
         <div className="mt-8">
           <p className="text-lg font-bold">Made by Team Vedans</p>
@@ -76,14 +76,14 @@ const AboutUsPage: React.FC = () => {
 const teamMembers = [
   {
     name: "Adarsh Tiwari",
-    role: "Frontend Developer",
-    Github: "https://Github.com/adarsh-tiwari",
-    linkedin: "https://www.linkedin.com/in/adarsh-tiwari/",
-    email: "adarsh@example.com",
+    role: "Full Satck Developer",
+    Github: "https://github.com/adarsh1278",
+    linkedin: "https://www.linkedin.com/in/adarsh-tiwari-46aab925a/",
+    email: "aniltiwareee@gmail.com",
   },
   {
     name: "Prassanam Tiwari",
-    role: "Backend Developer",
+    role: "Full Stack Developer",
     Github: "https://Github.com/prassanam-tiwari",
     linkedin: "https://www.linkedin.com/in/prassanam-tiwari/",
     email: "prassanam@example.com",
@@ -97,14 +97,14 @@ const teamMembers = [
   },
   {
     name: "Aditya Maheshwari",
-    role: "Database Administrator",
+    role: "Frontend ",
     Github: "https://Github.com/aditya-maheshwari",
     linkedin: "https://www.linkedin.com/in/aditya-maheshwari/",
     email: "aditya@example.com",
   },
   {
     name: "Anmol Singh",
-    role: "Quality Assurance",
+    role: "UI ux",
     Github: "https://Github.com/anmol-singh",
     linkedin: "https://www.linkedin.com/in/anmol-singh/",
     email: "anmol@example.com",

@@ -46,7 +46,7 @@ function DoubtsList() {
     }
 
     return (
-        <div className="flex flex-col justify-center items-center p-5 w-full bg-slate-600">
+        <div className="flex flex-col justify-center items-center p-5 w-full bg-yellow-50 dark:bg-slate-500 ">
             <h1 className="text-3xl text-blue-600 p-5">My Doubts</h1>
             <ul className="w-full">
                 {doubts.length === 0 ? (
@@ -57,7 +57,7 @@ function DoubtsList() {
                             <div>
                                 <div className="canvas-paper"></div>
                                 <div className="canvas-paper">
-                                    <div className="bg-white text-gray-900 rounded-lg shadow-lg dark:bg-gray-900 dark:text-gray-100 p-6">
+                                    <div className="bg-white text-gray-900 rounded-lg shadow-lg dark:bg-gray-700 dark:text-gray-100 p-6">
                                         <div className="items-center justify-between flex">
                                             <p className="text-2xl xl:text-4xl font-bold mb-4 glow">{doubt.head || "No title"}</p>
                                             <div className="text-xl xl:text-3xl items-center glow flex">
