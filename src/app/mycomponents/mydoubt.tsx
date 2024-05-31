@@ -22,8 +22,9 @@ function DoubtsList() {
                 const data = await response.json();4
                 console.log("above the data")
                 console.log(data);
+                console.log(data.status)
                 console.log("below the data")
-                if (data.status==200) {
+                if (data.body.success) {
                     setDoubts(data.body.doubts);
                 } else {
                     setError(data.body.message);
