@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
         await dbConnect();
         console.log("inside my doubt");
 
-        const token = req.cookies.get('token')?.value || '';
+        const token = await req.cookies.get('token')?.value || '';
         if (!token) {
             return NextResponse.json({
                 message: "Token authentication failed",
@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
         }
 
         // Decode token
-        const decodedToken: any = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET as Secret);
+        const decodedToken: any = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET as Secret);
         
         if (!decodedToken._id) {
             return NextResponse.json({
