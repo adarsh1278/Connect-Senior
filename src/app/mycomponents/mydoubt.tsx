@@ -25,6 +25,7 @@ function DoubtsList() {
                 console.log(data.status)
                 console.log("below the data")
                 if (data.body.success) {
+                    console.log("inside the duccess body")
                     setDoubts(data.body.doubts);
                 } else {
                     setError(data.body.message);
