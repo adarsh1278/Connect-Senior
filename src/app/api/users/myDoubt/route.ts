@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(req: NextRequest) {
     try {
         await dbConnect();
-
+        console.log("inside my doubt")
         const token = await req.cookies.get('token')?.value || '';
         if (!token) {
             return NextResponse.json({
@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
         }
 
         const doubts = await DoubtModel.find({ userId: decodedToken._id });
-
+  console.log(doubts)
         return NextResponse.json({
             status: 200,
             body: {

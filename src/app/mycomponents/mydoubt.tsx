@@ -17,11 +17,11 @@ function DoubtsList() {
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
+            try { console.log("inside clling detch doubt my")
                 const response = await fetch('/api/users/myDoubt'); // Assuming your API route is '/api/doubts'
                 const data = await response.json();
                 console.log(data);
-                if (data.body.success) {
+                if (data.status==200) {
                     setDoubts(data.body.doubts);
                 } else {
                     setError(data.body.message);
