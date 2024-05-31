@@ -49,6 +49,7 @@ export async function GET(req: NextRequest) {
                 message: "Something went wrong",
                 success: false,
                 doubts: "No doubts available",
+                error:error,
             },
         });
     }
