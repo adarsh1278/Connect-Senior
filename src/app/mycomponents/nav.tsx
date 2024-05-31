@@ -43,7 +43,7 @@ const Navbar = () => {
               <Link href="/" onClick={toggleNavbar} className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Home</Link>
               <Link href="/leaderboard" onClick={toggleNavbar} className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Leaderboard</Link>
               <Link href="/doubts" onClick={toggleNavbar} className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Explore Doubts</Link>
-              <Link href="/sign-up" onClick={toggleNavbar} className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Join</Link>
+              <Link href="/aboutUs" onClick={toggleNavbar} className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">AboutUS</Link>
             </div>
 
             <div className="flex items-center mt-4 lg:mt-0">
