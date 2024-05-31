@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/dbconnect";
-import User, { User as UserType } from "@/models/User.model";
+import User from "@/models/User.model";
 import ReplyModel, { Reply as ReplyType } from "@/models/Reply.model";
 import { startOfDay, subDays } from "date-fns";
 import mongoose from "mongoose";
