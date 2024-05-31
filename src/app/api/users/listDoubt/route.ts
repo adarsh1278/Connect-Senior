@@ -1,10 +1,12 @@
 "use server"
-import {  NextResponse } from 'next/server';
+import {  NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/dbconnect';
 import DoubtModel from '@/models/Doubt.model';
 
-export async function GET() {
+export async function GET(req:NextRequest) {
+    const token = await req.cookies.get('token')?.value || '';
     try {
+        console.log(token);
        
         await dbConnect();
        

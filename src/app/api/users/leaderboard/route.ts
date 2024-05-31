@@ -8,7 +8,8 @@ import mongoose from "mongoose";
 
 
 export async function GET(req: NextRequest) {
-
+  const token = await req.cookies.get('token')?.value || 'gh';
+  console.log(token)
 try{
 
     await dbConnect();
